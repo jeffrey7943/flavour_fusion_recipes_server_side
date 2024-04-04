@@ -1,0 +1,15 @@
+{
+  "name": "server_side",
+  "version": "1.0.0",
+  "description": "node.js backend for a savory recipe website, handling data and serving up culinary delights with precision and speed",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "JEFFREY ANTHONY MUKKATH",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
