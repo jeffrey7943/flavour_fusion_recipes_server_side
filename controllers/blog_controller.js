@@ -5,7 +5,7 @@ const get_blog = async (req, res) => {
     const blog = await Blog.find();
     return res.json(blog);
   } catch (error) {
-    return res.status(404).send("ERROR OCCURED");
+    return res.status(404).json("ERROR OCCURED");
   }
 };
 
@@ -15,10 +15,10 @@ const single_blog = async (req, res) => {
     if (blog) {
       return res.json(blog);
     } else {
-      return res.status(404).send("BLOG NOT FOUND");
+      return res.status(404).json("BLOG NOT FOUND");
     }
   } catch (error) {
-    return res.status(404).send("ERROR OCCURED");
+    return res.status(404).json("ERROR OCCURED");
   }
 };
 
@@ -29,10 +29,10 @@ const breakfast_blog = async (req, res) => {
     if (breakfast) {
       return res.json(breakfast);
     } else {
-      return res.status(404).send("BLOGS NOT FOUND");
+      return res.status(404).json("BLOGS NOT FOUND");
     }
   } catch (error) {
-    return res.status(404).send("ERROR OCCURED");
+    return res.status(404).json("ERROR OCCURED");
   }
 };
 
@@ -43,10 +43,10 @@ const lunch_blog = async (req, res) => {
     if (lunch) {
       return res.json(lunch);
     } else {
-      return res.status(404).send("BLOGS NOT FOUND");
+      return res.status(404).json("BLOGS NOT FOUND");
     }
   } catch (error) {
-    return res.status(404).send("ERROR OCCURED");
+    return res.status(404).json("ERROR OCCURED");
   }
 };
 
@@ -57,10 +57,10 @@ const dinner_blog = async (req, res) => {
     if (dinner) {
       return res.json(dinner);
     } else {
-      return res.status(404).send("BLOGS NOT FOUND");
+      return res.status(404).json("BLOGS NOT FOUND");
     }
   } catch (error) {
-    return res.status(404).send("ERROR OCCURED");
+    return res.status(404).json("ERROR OCCURED");
   }
 };
 
@@ -90,7 +90,7 @@ const create_blog = async (req, res) => {
     !instructions ||
     !facts
   ) {
-    return res.status(404).send("PLEASE FILL ALL THE FIELDS");
+    return res.status(404).json("PLEASE FILL ALL THE FIELDS");
   }
 
   try {
@@ -110,7 +110,7 @@ const create_blog = async (req, res) => {
     const create = await blog.save();
     return res.status(201).json(create);
   } catch (error) {
-    return res.status(404).send("ERROR OCCURED");
+    return res.status(404).json("ERROR OCCURED");
   }
 };
 
@@ -153,10 +153,10 @@ const delete_blog = async (req, res) => {
   const blog = await Blog.findById(req.params.id);
   if (blog) {
     await blog.deleteOne();
-    res.send("BLOG DELETED");
+    res.json("BLOG DELETED");
   } else {
     res.status(404);
-    res.send("BLOG NOT FOUND");
+    res.json("BLOG NOT FOUND");
   }
 };
 
